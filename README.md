@@ -1,10 +1,10 @@
-# Manual Lead Tracking
-
-For use cases where you need manual control over lead submission (e.g., Stimulus JS, custom frameworks), the SDK exposes two functions:
+# Leadsources SDK Function
 
 ## `trackLead(data)`
 
-Submit a lead record with custom data.
+Submit a lead record with custom data. The SDK will automatically include UTM parameters and visitor tracking data when sending the lead record.
+
+**Example:**
 
 ```javascript
 window.leadsources.trackLead({
@@ -20,50 +20,9 @@ window.leadsources.trackLead({
 - Custom forms built with component frameworks where form hijacking doesn't work (via `data-leadsources-form`)
 
 
-**Example: Stimulus Controller**
-
-```javascript
-import { Controller } from "@hotwired/stimulus";
-
-export default class extends Controller {
-  submit(event) {
-    event.preventDefault();
-
-    // Get tracking context (visitor ID, session ID, UTM params)
-    const tracking = window.leadsources.getTrackingData();
-
-    const data = {
-      email: this.element.querySelector('[name="email"]').value,
-      name: this.element.querySelector('[name="name"]').value,
-    };
-
-    // Track the lead manually
-    window.leadsources.trackLead(data);
-  }
-}
-```
-
-**HTML with Stimulus:**
-
-```html
-<div data-controller="form">
-  <form>
-    <input type="email" name="email" required />
-    <input type="text" name="name" />
-    <input type="submit" data-action="click->form#submit" value="Submit" />
-  </form>
-</div>
-```
-
-The SDK will automatically include UTM parameters and visitor tracking data when sending the lead record.
-
 ## `getTrackingData()`
 
 Retrieve the current tracking data without submitting a lead.
-
-```javascript
-const trackingData = window.leadsources.getTrackingData();
-```
 
 **Returns an object containing:**
 
