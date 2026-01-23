@@ -1,4 +1,4 @@
-# Leadsources SDK Function
+# Leadsources SDK Functions
 
 ## `trackLead(data)`
 
