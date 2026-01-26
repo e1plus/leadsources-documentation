@@ -2,7 +2,7 @@
 
 ## `trackLead(data)`
 
-Submit a lead record with custom data. The SDK will automatically include UTM parameters and visitor tracking data when sending the lead record.
+Submit a lead record with custom data. The SDK will automatically include all lead source data and visitor journey data when sending the lead record. Used to send data to your LeadSources dashboard.
 
 **Example:**
 
@@ -22,17 +22,17 @@ window.leadsources.trackLead({
 
 ## `getTrackingData()`
 
-Retrieve the current tracking data without submitting a lead.
+Retrieve the last lead source data without submitting a lead. Used to record last click lead source data in your CRM.
 
 **Returns an object containing:**
 
 - `visitor_id` - Unique visitor identifier
 - `session_id` - Current session identifier
+- `channel` - Custom channel parameter (if available)
 - `utm_source` - UTM source parameter (if available)
 - `utm_campaign` - UTM campaign parameter (if available)
 - `utm_term` - UTM term parameter (if available)
 - `utm_content` - UTM content parameter (if available)
-- `channel` - Custom channel parameter (if available)
 - `landing_page` - Landing page URL (if available)
 - `landing_page_subfolder` - Landing page subfolder (if available)
 
