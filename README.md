@@ -1,8 +1,18 @@
 # Leadsources SDK Functions
 
-## `trackLead(data)`
+## `trackLead(data, formTitle, formType)`
 
 Submit a lead record with custom data. The SDK will automatically include all lead source data and visitor journey data when sending the lead record. Used to send data to your LeadSources dashboard.
+
+**Parameters:**
+
+- `data` - Object containing lead information (email, name, phone, etc.)
+- `formTitle` - String (max 255 characters) identifying the form
+- `formType` - String, form builder type. Must be one of:
+  - `"elementor-forms"`
+  - `"gravity-forms"`
+  - `"ninja-forms"`
+  - `"custom-forms"`
 
 **Example:**
 
@@ -12,7 +22,7 @@ window.leadsources.trackLead({
   name: "John Doe",
   phone: "555-1234",
   // ... any other fields
-});
+}, "Contact Us Form", "elementor-forms");
 ```
 
 **When to use:**
