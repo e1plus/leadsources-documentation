@@ -17,7 +17,7 @@ window.leadsources.trackLead({
   name: "John Doe",
   phone: "555-1234",
   // ... any other fields
-}, "Contact Us Form", "elementor-forms");
+}, "Contact Us Form");
 ```
 
 **When to use:**
